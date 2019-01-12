@@ -67,22 +67,59 @@
                                     <outlet property="delegate" destination="JjU-UP-nor" id="UpP-pb-5Tc"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-kK-oU0">
+                                <rect key="frame" x="169" y="232.5" width="37" height="37"/>
+                                <color key="color" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0W-7A-PMg">
+                                <rect key="frame" x="299" y="221" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="D0W-7A-PMg" secondAttribute="height" multiplier="1:1" id="89K-Uv-rlU"/>
+                                    <constraint firstAttribute="height" constant="60" id="nPw-AO-GHY"/>
+                                </constraints>
+                                <color key="tintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="next"/>
+                                <connections>
+                                    <action selector="nextAction:" destination="JjU-UP-nor" eventType="touchUpInside" id="WCN-or-iKk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t98-5x-fIE">
+                                <rect key="frame" x="16" y="221" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Fx6-ul-1JD"/>
+                                    <constraint firstAttribute="width" secondItem="t98-5x-fIE" secondAttribute="height" multiplier="1:1" id="HiX-5Z-TiA"/>
+                                </constraints>
+                                <color key="tintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backAction:" destination="JjU-UP-nor" eventType="touchUpInside" id="xZr-S4-lDt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OwV-eJ-eu3" firstAttribute="trailing" secondItem="eAw-Xu-Vpu" secondAttribute="trailing" id="Apo-ez-ehf"/>
+                            <constraint firstItem="OwV-eJ-eu3" firstAttribute="trailing" secondItem="D0W-7A-PMg" secondAttribute="trailing" constant="16" id="KH7-kH-FJf"/>
                             <constraint firstItem="eAw-Xu-Vpu" firstAttribute="leading" secondItem="OwV-eJ-eu3" secondAttribute="leading" id="Mpx-nz-VdI"/>
                             <constraint firstItem="ZF2-Y1-2dQ" firstAttribute="top" secondItem="OwV-eJ-eu3" secondAttribute="top" id="ORi-hE-glD"/>
+                            <constraint firstItem="t98-5x-fIE" firstAttribute="leading" secondItem="OwV-eJ-eu3" secondAttribute="leading" constant="16" id="RJm-22-bhf"/>
+                            <constraint firstItem="aA9-kK-oU0" firstAttribute="centerY" secondItem="v4C-ew-VWJ" secondAttribute="centerY" id="RRj-TP-2Fp"/>
+                            <constraint firstItem="t98-5x-fIE" firstAttribute="centerY" secondItem="v4C-ew-VWJ" secondAttribute="centerY" id="Rxd-P7-Anr"/>
                             <constraint firstItem="ZF2-Y1-2dQ" firstAttribute="leading" secondItem="OwV-eJ-eu3" secondAttribute="leading" id="W8z-pE-C4Q"/>
+                            <constraint firstItem="D0W-7A-PMg" firstAttribute="centerY" secondItem="v4C-ew-VWJ" secondAttribute="centerY" id="cb8-Ni-w8q"/>
                             <constraint firstItem="OwV-eJ-eu3" firstAttribute="bottom" secondItem="eAw-Xu-Vpu" secondAttribute="bottom" id="kGA-Eq-y8U"/>
                             <constraint firstItem="ZF2-Y1-2dQ" firstAttribute="trailing" secondItem="OwV-eJ-eu3" secondAttribute="trailing" id="q5s-TV-VCW"/>
                             <constraint firstItem="eAw-Xu-Vpu" firstAttribute="top" secondItem="ZF2-Y1-2dQ" secondAttribute="bottom" id="to4-va-8eS"/>
+                            <constraint firstItem="aA9-kK-oU0" firstAttribute="centerX" secondItem="v4C-ew-VWJ" secondAttribute="centerX" id="z30-db-XcU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OwV-eJ-eu3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe" id="Tcx-DK-mKk"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="aA9-kK-oU0" id="Ipu-a4-OuO"/>
+                        <outlet property="backButton" destination="t98-5x-fIE" id="s3H-ee-Q6J"/>
                         <outlet property="collectionView" destination="eAw-Xu-Vpu" id="znz-6o-IDa"/>
+                        <outlet property="nextButton" destination="D0W-7A-PMg" id="dRs-nR-BJW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpP-4Z-HeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -137,4 +174,8 @@
             <point key="canvasLocation" x="1132" y="-122.78860569715144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="512" height="512"/>
+        <image name="next" width="512" height="512"/>
+    </resources>
 </document>

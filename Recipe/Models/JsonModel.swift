@@ -9,6 +9,7 @@
 import Foundation
 
 struct JsonModel: Decodable {
+    var count: Int?
     var hits: [HitObject]?
 }
 

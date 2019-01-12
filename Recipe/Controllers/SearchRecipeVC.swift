@@ -11,24 +11,36 @@ import UIKit
 class SearchRecipeVC: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var hits = [HitObject]()
     private var recipes = [Recipe]()
     
+    private var searchText = "chicken"
+    private var from = 0
+    private var to = 6
+    private var totalHits = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFoods(withText: "chicken")
+        getFoods(withText: searchText, from: from, to: to)
     }
 
-    func getFoods(withText search: String){
-        let url = Constants().getBaseURL(withSearchText: search)
+    func getFoods(withText search: String, from: Int, to: Int){
+        activityIndicator.startAnimating()
+        let url = Constants().getBaseURL(withSearchText: search, from: from, to: to)
         URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             guard let jsonData = data , error == nil else {
                 return
             }
             do {
                 let json = try JSONDecoder().decode(JsonModel.self, from: jsonData)
+                self.totalHits = json.count ?? 0
                 if let hits = json.hits {
+                    self.hits.removeAll()
+                    self.recipes.removeAll()
                     for (index, hit) in hits.enumerated() {
                         self.hits.append(hit)
                         if let recipe = hits[index].recipe {
@@ -37,6 +49,7 @@ class SearchRecipeVC: UIViewController {
                     }
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
+                        self.activityIndicator.stopAnimating()
                     }
                 }
             } catch{
@@ -45,6 +58,22 @@ class SearchRecipeVC: UIViewController {
         }).resume()
     }
 
+    @IBAction func nextAction(_ sender: UIButton) {
+        if to > (totalHits - 6){
+            return
+        }
+        from += 6
+        to += 6
+        getFoods(withText: searchText, from: from, to: to)
+    }
+    @IBAction func backAction(_ sender: Any) {
+        if from < 6 {
+            return
+        }
+        from -= 6
+        to -= 6
+        getFoods(withText: searchText, from: from, to: to)
+    }
 }
 
 extension SearchRecipeVC: UICollectionViewDataSource {
