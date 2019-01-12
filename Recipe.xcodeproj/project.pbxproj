@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A2DB39321EA68A800B5CDD1 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB39221EA68A800B5CDD1 /* RecipeCell.swift */; };
+		9A2DB39521EA68BB00B5CDD1 /* RecipeXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2DB39421EA68BB00B5CDD1 /* RecipeXib.xib */; };
+		9A2DB39721EA68D000B5CDD1 /* RecipeXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB39621EA68D000B5CDD1 /* RecipeXibView.swift */; };
+		9A2DB39921EA6A0A00B5CDD1 /* MyRoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB39821EA6A0A00B5CDD1 /* MyRoundedImageView.swift */; };
+		9A2DB39B21EA6E3800B5CDD1 /* MyGradientShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB39A21EA6E3800B5CDD1 /* MyGradientShadowView.swift */; };
 		9AE9DECF21EA445F00F4ED59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9DECE21EA445F00F4ED59 /* AppDelegate.swift */; };
-		9AE9DED121EA445F00F4ED59 /* SearchRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9DED021EA445F00F4ED59 /* SearchRecipe.swift */; };
+		9AE9DED121EA445F00F4ED59 /* SearchRecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9DED021EA445F00F4ED59 /* SearchRecipeVC.swift */; };
 		9AE9DED421EA445F00F4ED59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE9DED221EA445F00F4ED59 /* Main.storyboard */; };
 		9AE9DED621EA446000F4ED59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE9DED521EA446000F4ED59 /* Assets.xcassets */; };
 		9AE9DED921EA446000F4ED59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE9DED721EA446000F4ED59 /* LaunchScreen.storyboard */; };
@@ -17,9 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A2DB39221EA68A800B5CDD1 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		9A2DB39421EA68BB00B5CDD1 /* RecipeXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeXib.xib; sourceTree = "<group>"; };
+		9A2DB39621EA68D000B5CDD1 /* RecipeXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeXibView.swift; sourceTree = "<group>"; };
+		9A2DB39821EA6A0A00B5CDD1 /* MyRoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoundedImageView.swift; sourceTree = "<group>"; };
+		9A2DB39A21EA6E3800B5CDD1 /* MyGradientShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGradientShadowView.swift; sourceTree = "<group>"; };
 		9AE9DECB21EA445F00F4ED59 /* Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE9DECE21EA445F00F4ED59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9AE9DED021EA445F00F4ED59 /* SearchRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipe.swift; sourceTree = "<group>"; };
+		9AE9DED021EA445F00F4ED59 /* SearchRecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeVC.swift; sourceTree = "<group>"; };
 		9AE9DED321EA445F00F4ED59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AE9DED521EA446000F4ED59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AE9DED821EA446000F4ED59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,7 +75,6 @@
 				9AE9DEE121EA44A100F4ED59 /* Views */,
 				9AE9DEE021EA449400F4ED59 /* Controllers */,
 				9AE9DECE21EA445F00F4ED59 /* AppDelegate.swift */,
-				9AE9DED021EA445F00F4ED59 /* SearchRecipe.swift */,
 				9AE9DED221EA445F00F4ED59 /* Main.storyboard */,
 				9AE9DED521EA446000F4ED59 /* Assets.xcassets */,
 				9AE9DED721EA446000F4ED59 /* LaunchScreen.storyboard */,
@@ -77,6 +86,7 @@
 		9AE9DEE021EA449400F4ED59 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9AE9DED021EA445F00F4ED59 /* SearchRecipeVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -84,6 +94,9 @@
 		9AE9DEE121EA44A100F4ED59 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9A2DB39621EA68D000B5CDD1 /* RecipeXibView.swift */,
+				9A2DB39821EA6A0A00B5CDD1 /* MyRoundedImageView.swift */,
+				9A2DB39A21EA6E3800B5CDD1 /* MyGradientShadowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,6 +112,7 @@
 		9AE9DEE321EA44B400F4ED59 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9A2DB39221EA68A800B5CDD1 /* RecipeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -106,6 +120,7 @@
 		9AE9DEE421EA44BD00F4ED59 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				9A2DB39421EA68BB00B5CDD1 /* RecipeXib.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -177,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AE9DED921EA446000F4ED59 /* LaunchScreen.storyboard in Resources */,
+				9A2DB39521EA68BB00B5CDD1 /* RecipeXib.xib in Resources */,
 				9AE9DED621EA446000F4ED59 /* Assets.xcassets in Resources */,
 				9AE9DED421EA445F00F4ED59 /* Main.storyboard in Resources */,
 			);
@@ -189,8 +205,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2DB39921EA6A0A00B5CDD1 /* MyRoundedImageView.swift in Sources */,
+				9A2DB39721EA68D000B5CDD1 /* RecipeXibView.swift in Sources */,
+				9A2DB39B21EA6E3800B5CDD1 /* MyGradientShadowView.swift in Sources */,
+				9A2DB39321EA68A800B5CDD1 /* RecipeCell.swift in Sources */,
 				9AE9DEE821EA460900F4ED59 /* JsonModel.swift in Sources */,
-				9AE9DED121EA445F00F4ED59 /* SearchRecipe.swift in Sources */,
+				9AE9DED121EA445F00F4ED59 /* SearchRecipeVC.swift in Sources */,
 				9AE9DECF21EA445F00F4ED59 /* AppDelegate.swift in Sources */,
 				9AE9DEED21EA4CAE00F4ED59 /* Constants.swift in Sources */,
 			);

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.15" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.9"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecipeXibView" customModule="Recipe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="193" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZO-4u-mOU" customClass="MyGradientShadowView" customModule="Recipe" customModuleProvider="target">
+                    <rect key="frame" x="6.5" y="10" width="180" height="180"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rice" translatesAutoresizingMaskIntoConstraints="NO" id="fzb-h8-v0Z" customClass="MyRoundedImageView" customModule="Recipe" customModuleProvider="target">
+                            <rect key="frame" x="25" y="4" width="130" height="130"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="fzb-h8-v0Z" secondAttribute="height" multiplier="1:1" id="BSf-cb-Rjv"/>
+                                <constraint firstAttribute="height" constant="130" id="UcG-2s-40o"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken Rice" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PRJ-QM-q1O">
+                            <rect key="frame" x="8" y="138" width="164" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="fzb-h8-v0Z" firstAttribute="centerX" secondItem="pZO-4u-mOU" secondAttribute="centerX" id="EY9-wJ-jfD"/>
+                        <constraint firstAttribute="height" constant="180" id="Fvl-0O-1jA"/>
+                        <constraint firstItem="PRJ-QM-q1O" firstAttribute="leading" secondItem="pZO-4u-mOU" secondAttribute="leading" constant="8" id="QTe-QF-8Bg"/>
+                        <constraint firstAttribute="trailing" secondItem="PRJ-QM-q1O" secondAttribute="trailing" constant="8" id="ZL8-h7-hvu"/>
+                        <constraint firstAttribute="width" secondItem="pZO-4u-mOU" secondAttribute="height" multiplier="1:1" id="fMO-Ql-Njg"/>
+                        <constraint firstItem="PRJ-QM-q1O" firstAttribute="top" secondItem="fzb-h8-v0Z" secondAttribute="bottom" constant="4" id="j57-Jj-zwu"/>
+                        <constraint firstItem="PRJ-QM-q1O" firstAttribute="centerX" secondItem="pZO-4u-mOU" secondAttribute="centerX" id="km4-zf-04k"/>
+                        <constraint firstItem="fzb-h8-v0Z" firstAttribute="top" secondItem="pZO-4u-mOU" secondAttribute="top" constant="4" id="nBx-V0-CEj"/>
+                        <constraint firstAttribute="bottom" secondItem="PRJ-QM-q1O" secondAttribute="bottom" constant="8" id="uEX-mq-3gK"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                            <color key="value" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                            <color key="value" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                            <point key="value" x="0.5" y="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                            <point key="value" x="0.5" y="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="24"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="3" height="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="pZO-4u-mOU" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TYD-Mz-HXg"/>
+                <constraint firstItem="pZO-4u-mOU" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bT5-Wf-nE9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="recipeImageView" destination="fzb-h8-v0Z" id="4bT-98-2hm"/>
+                <outlet property="recipeLabel" destination="PRJ-QM-q1O" id="oT6-Us-ETu"/>
+            </connections>
+            <point key="canvasLocation" x="-106.40000000000001" y="101.64917541229386"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="rice" width="300" height="300"/>
+    </resources>
+</document>
