@@ -15,25 +15,45 @@ class SearchRecipeVC: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var enterRecipeLabel: UILabel!
+    
     private var hits = [HitObject]()
     private var recipes = [Recipe]()
     
-    private var searchText = "chicken"
+    private var searchText = ""
     private var from = 0
     private var to = 6
     private var totalHits = 0
+    private var isSearchOpen = false
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getFoods(withText: searchText, from: from, to: to)
+        showHideViews()
     }
 
+    private func showHideViews(){
+        if recipes.count == 0 {
+            backButton.isHidden = true
+            nextButton.isHidden = true
+            enterRecipeLabel.isHidden = false
+        } else {
+            backButton.isHidden = false
+            nextButton.isHidden = false
+            enterRecipeLabel.isHidden = true
+        }
+    }
+    
     func getFoods(withText search: String, from: Int, to: Int){
         activityIndicator.startAnimating()
+        enterRecipeLabel.isHidden = true
         let url = Constants().getBaseURL(withSearchText: search, from: from, to: to)
         URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
             guard let jsonData = data , error == nil else {
+                self.activityIndicator.stopAnimating()
+                self.enterRecipeLabel.isHidden = false
                 return
             }
             do {
@@ -51,9 +71,15 @@ class SearchRecipeVC: UIViewController {
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                         self.activityIndicator.stopAnimating()
+                        self.showHideViews()
                     }
+                } else {
+                    self.activityIndicator.stopAnimating()
+                    self.enterRecipeLabel.isHidden = false
                 }
             } catch{
+                self.activityIndicator.stopAnimating()
+                self.enterRecipeLabel.isHidden = false
                 debugPrint(error.localizedDescription)
             }
         }).resume()
@@ -183,4 +209,38 @@ protocol SelectionRecipe {
         phosphorusTotal: String, phosphorusDaily: String
     )
  
+}
+
+extension SearchRecipeVC: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearchOpen = true
+        if isSearchOpen {
+            addCloseSearchBar()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text {
+            self.searchText = searchText
+            from = 0
+            to = 6
+            getFoods(withText: searchText, from: from, to: to)
+            closeSearch()
+            
+        }
+    }
+    
+    private func addCloseSearchBar() {
+        let closeTap = UITapGestureRecognizer(target: self, action: #selector(closeSearch))
+        view.addGestureRecognizer(closeTap)
+    }
+    @objc private func closeSearch(){
+        if isSearchOpen {
+            searchBar.resignFirstResponder()
+            view.gestureRecognizers?.removeAll()
+            isSearchOpen = false
+        }
+        
+    }
 }

@@ -42,6 +42,9 @@
                                     <string>Title</string>
                                     <string>Title</string>
                                 </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="JjU-UP-nor" id="ViC-ba-UFh"/>
+                                </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eAw-Xu-Vpu">
                                 <rect key="frame" x="0.0" y="56" width="375" height="446"/>
@@ -71,6 +74,12 @@
                                 <rect key="frame" x="169" y="232.5" width="37" height="37"/>
                                 <color key="color" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your desired recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRj-G2-15G">
+                                <rect key="frame" x="91.5" y="240.5" width="192" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0W-7A-PMg">
                                 <rect key="frame" x="299" y="221" width="60" height="60"/>
                                 <constraints>
@@ -98,6 +107,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="sRj-G2-15G" firstAttribute="centerY" secondItem="v4C-ew-VWJ" secondAttribute="centerY" id="76Q-Hh-C6i"/>
                             <constraint firstItem="OwV-eJ-eu3" firstAttribute="trailing" secondItem="eAw-Xu-Vpu" secondAttribute="trailing" id="Apo-ez-ehf"/>
                             <constraint firstItem="OwV-eJ-eu3" firstAttribute="trailing" secondItem="D0W-7A-PMg" secondAttribute="trailing" constant="16" id="KH7-kH-FJf"/>
                             <constraint firstItem="eAw-Xu-Vpu" firstAttribute="leading" secondItem="OwV-eJ-eu3" secondAttribute="leading" id="Mpx-nz-VdI"/>
@@ -110,6 +120,7 @@
                             <constraint firstItem="OwV-eJ-eu3" firstAttribute="bottom" secondItem="eAw-Xu-Vpu" secondAttribute="bottom" id="kGA-Eq-y8U"/>
                             <constraint firstItem="ZF2-Y1-2dQ" firstAttribute="trailing" secondItem="OwV-eJ-eu3" secondAttribute="trailing" id="q5s-TV-VCW"/>
                             <constraint firstItem="eAw-Xu-Vpu" firstAttribute="top" secondItem="ZF2-Y1-2dQ" secondAttribute="bottom" id="to4-va-8eS"/>
+                            <constraint firstItem="sRj-G2-15G" firstAttribute="centerX" secondItem="v4C-ew-VWJ" secondAttribute="centerX" id="txZ-VC-mIR"/>
                             <constraint firstItem="aA9-kK-oU0" firstAttribute="centerX" secondItem="v4C-ew-VWJ" secondAttribute="centerX" id="z30-db-XcU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OwV-eJ-eu3"/>
@@ -119,7 +130,9 @@
                         <outlet property="activityIndicator" destination="aA9-kK-oU0" id="Ipu-a4-OuO"/>
                         <outlet property="backButton" destination="t98-5x-fIE" id="s3H-ee-Q6J"/>
                         <outlet property="collectionView" destination="eAw-Xu-Vpu" id="znz-6o-IDa"/>
+                        <outlet property="enterRecipeLabel" destination="sRj-G2-15G" id="DHr-hM-g0b"/>
                         <outlet property="nextButton" destination="D0W-7A-PMg" id="dRs-nR-BJW"/>
+                        <outlet property="searchBar" destination="ZF2-Y1-2dQ" id="GtO-jX-eNy"/>
                         <segue destination="dAh-CN-iDD" kind="show" identifier="recipeSegue" id="IYy-Ce-mkQ"/>
                     </connections>
                 </viewController>
