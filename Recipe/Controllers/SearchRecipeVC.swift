@@ -23,6 +23,7 @@ class SearchRecipeVC: UIViewController {
     private var to = 6
     private var totalHits = 0
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         getFoods(withText: searchText, from: from, to: to)
@@ -94,4 +95,92 @@ extension SearchRecipeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.frame.size.width / 2) - 10, height: 200)
     }
+}
+
+extension SearchRecipeVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recipe = recipes[indexPath.row]
+        performSegue(withIdentifier: "recipeSegue", sender: recipe)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let recipeVC = segue.destination as? RecipeVC {
+            if let recipe = sender as? Recipe {
+                var imageData = Data()
+                if let imageLink = recipe.image {
+                    if let imageURL = URL(string: imageLink) {
+                        imageData = try! Data(contentsOf: imageURL)
+                    }
+                }
+                let name = recipe.label
+                var calories = ""
+                if let caloriesDouble = recipe.calories {
+                    calories = String(format: "%.f", caloriesDouble)
+                }
+                var ingredients = ""
+                if let ingredientsLines = recipe.ingredientLines {
+                    ingredients = ingredientsLines.joined(separator: "\n")
+                }
+                
+                let fatsTotal = "\(String(format: "%.f", recipe.totalNutrients?.FAT?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let fatsDaily = "\(String(format: "%.f", recipe.totalDaily?.FAT?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let carbohydratesTotal = "\(String(format: "%.f", recipe.totalNutrients?.CHOCDF?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let carbohydratesDaily = "\(String(format: "%.f", recipe.totalDaily?.CHOCDF?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let proteinTotal = "\(String(format: "%.f", recipe.totalNutrients?.PROCNT?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let proteinDaily = "\(String(format: "%.f", recipe.totalDaily?.PROCNT?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let fiberTotal = "\(String(format: "%.f", recipe.totalNutrients?.FIBTG?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let fiberDaily = "\(String(format: "%.f", recipe.totalDaily?.FIBTG?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let sugarTotal = "\(String(format: "%.f", recipe.totalNutrients?.SUGAR?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let sugarDaily = "\(String(format: "%.f", recipe.totalDaily?.SUGAR?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let cholesterolTotal = "\(String(format: "%.f", recipe.totalNutrients?.CHOLE?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let cholesterolDaily = "\(String(format: "%.f", recipe.totalDaily?.CHOLE?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let sodiumTotal = "\(String(format: "%.f", recipe.totalNutrients?.NA?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let sodiumDaily = "\(String(format: "%.f", recipe.totalDaily?.NA?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let calciumTotal = "\(String(format: "%.f", recipe.totalNutrients?.CA?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let calciumDaily = "\(String(format: "%.f", recipe.totalDaily?.CA?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let magnesiumTotal = "\(String(format: "%.f", recipe.totalNutrients?.MG?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let magnesiumDaily = "\(String(format: "%.f", recipe.totalDaily?.MG?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let potassiumTotal = "\(String(format: "%.f", recipe.totalNutrients?.K?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let potassiumDaily = "\(String(format: "%.f", recipe.totalDaily?.K?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let ironTotal = "\(String(format: "%.f", recipe.totalNutrients?.FE?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let ironDaily = "\(String(format: "%.f", recipe.totalDaily?.FE?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let zincTotal = "\(String(format: "%.f", recipe.totalNutrients?.ZN?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let zincDaily = "\(String(format: "%.f", recipe.totalDaily?.ZN?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                let phosphorusTotal = "\(String(format: "%.f", recipe.totalNutrients?.P?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
+                let phosphorusDaily = "\(String(format: "%.f", recipe.totalDaily?.P?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                
+                
+                
+                recipeVC.getRecipe(name: name!, imageData: imageData, ingredients: ingredients, calories: calories, fatsTotal: fatsTotal, fatsDaily: fatsDaily, carbohydratesTotal: carbohydratesTotal, carbohydratesDaily: carbohydratesDaily, proteinTotal: proteinTotal, proteinDaily: proteinDaily, fiberTotal: fiberTotal, fiberDaily: fiberDaily, sugarTotal: sugarTotal, sugarDaily: sugarDaily, cholesterolTotal: cholesterolTotal, cholesterolDaily: cholesterolDaily, sodiumTotal: sodiumTotal, sodiumDaily: sodiumDaily, calciumTotal: calciumTotal, calciumDaily: calciumDaily, magnesiumTotal: magnesiumTotal, magnesiumDaily: magnesiumDaily, potassiumTotal: potassiumTotal, potassiumDaily: potassiumDaily, ironTotal: ironTotal, ironDaily: ironDaily, zincTotal: zincTotal, zincDaily: zincDaily, phosphorusTotal: phosphorusTotal, phosphorusDaily: phosphorusDaily)
+
+            }
+        }
+    }
+}
+
+
+protocol SelectionRecipe {
+    
+    
+    
+    func getRecipe(
+        name: String,
+        imageData: Data,
+        ingredients: String,
+        calories: String,
+        fatsTotal: String, fatsDaily: String,
+        carbohydratesTotal: String, carbohydratesDaily: String,
+        proteinTotal: String, proteinDaily: String,
+        fiberTotal: String, fiberDaily: String,
+        sugarTotal: String, sugarDaily: String,
+        cholesterolTotal: String, cholesterolDaily: String,
+        sodiumTotal: String, sodiumDaily: String,
+        calciumTotal: String, calciumDaily: String,
+        magnesiumTotal: String, magnesiumDaily: String,
+        potassiumTotal: String, potassiumDaily: String,
+        ironTotal: String, ironDaily: String,
+        zincTotal: String, zincDaily: String,
+        phosphorusTotal: String, phosphorusDaily: String
+    )
+ 
 }

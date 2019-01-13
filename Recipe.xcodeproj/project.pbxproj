@@ -12,6 +12,8 @@
 		9A2DB39721EA68D000B5CDD1 /* RecipeXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB39621EA68D000B5CDD1 /* RecipeXibView.swift */; };
 		9A2DB39921EA6A0A00B5CDD1 /* MyRoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB39821EA6A0A00B5CDD1 /* MyRoundedImageView.swift */; };
 		9A2DB39B21EA6E3800B5CDD1 /* MyGradientShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB39A21EA6E3800B5CDD1 /* MyGradientShadowView.swift */; };
+		9A6BBE6E21EB0CB000B22161 /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6BBE6D21EB0CB000B22161 /* RecipeVC.swift */; };
+		9A6BBE7021EB175B00B22161 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6BBE6F21EB175B00B22161 /* CircleProgressView.swift */; };
 		9AE9DECF21EA445F00F4ED59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9DECE21EA445F00F4ED59 /* AppDelegate.swift */; };
 		9AE9DED121EA445F00F4ED59 /* SearchRecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9DED021EA445F00F4ED59 /* SearchRecipeVC.swift */; };
 		9AE9DED421EA445F00F4ED59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE9DED221EA445F00F4ED59 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		9A2DB39621EA68D000B5CDD1 /* RecipeXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeXibView.swift; sourceTree = "<group>"; };
 		9A2DB39821EA6A0A00B5CDD1 /* MyRoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoundedImageView.swift; sourceTree = "<group>"; };
 		9A2DB39A21EA6E3800B5CDD1 /* MyGradientShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGradientShadowView.swift; sourceTree = "<group>"; };
+		9A6BBE6D21EB0CB000B22161 /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
+		9A6BBE6F21EB175B00B22161 /* CircleProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		9AE9DECB21EA445F00F4ED59 /* Recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE9DECE21EA445F00F4ED59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AE9DED021EA445F00F4ED59 /* SearchRecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeVC.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				9AE9DED021EA445F00F4ED59 /* SearchRecipeVC.swift */,
+				9A6BBE6D21EB0CB000B22161 /* RecipeVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				9AE9DEEC21EA4CAE00F4ED59 /* Constants.swift */,
+				9A6BBE6F21EB175B00B22161 /* CircleProgressView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -205,12 +211,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A6BBE6E21EB0CB000B22161 /* RecipeVC.swift in Sources */,
 				9A2DB39921EA6A0A00B5CDD1 /* MyRoundedImageView.swift in Sources */,
 				9A2DB39721EA68D000B5CDD1 /* RecipeXibView.swift in Sources */,
 				9A2DB39B21EA6E3800B5CDD1 /* MyGradientShadowView.swift in Sources */,
 				9A2DB39321EA68A800B5CDD1 /* RecipeCell.swift in Sources */,
 				9AE9DEE821EA460900F4ED59 /* JsonModel.swift in Sources */,
 				9AE9DED121EA445F00F4ED59 /* SearchRecipeVC.swift in Sources */,
+				9A6BBE7021EB175B00B22161 /* CircleProgressView.swift in Sources */,
 				9AE9DECF21EA445F00F4ED59 /* AppDelegate.swift in Sources */,
 				9AE9DEED21EA4CAE00F4ED59 /* Constants.swift in Sources */,
 			);

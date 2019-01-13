@@ -26,7 +26,8 @@ struct Recipe: Decodable {
     var ingredientLines: [String]?
     var calories: Double?
     var totalNutrients: Nutrients?
-    
+    var totalDaily: Nutrients?
+
 }
 
 struct Nutrients: Decodable {
