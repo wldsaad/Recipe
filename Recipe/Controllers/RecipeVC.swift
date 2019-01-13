@@ -12,7 +12,8 @@ class RecipeVC: UIViewController, SelectionRecipe {
     
     
 
-
+    @IBOutlet weak var favButton: DOFavoriteButton!
+    
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeIngredientsTextView: UITextView!
     @IBOutlet weak var recipeKCaloriesLabel: UILabel!
@@ -91,6 +92,21 @@ class RecipeVC: UIViewController, SelectionRecipe {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        addTargetToFavButton()
+    }
+    
+    private func addTargetToFavButton(){
+        favButton.addTarget(self, action: #selector(tapped(sender:)), for: .touchUpInside)
+    }
+    
+    @objc private func tapped(sender: DOFavoriteButton) {
+        if sender.isSelected {
+            // deselect
+            sender.deselect()
+        } else {
+            // select with animation
+            sender.select()
+        }
     }
     
     private func updateViews(){

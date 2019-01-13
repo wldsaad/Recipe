@@ -839,6 +839,28 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0e2-JK-gCg" customClass="DOFavoriteButton" customModule="Recipe" customModuleProvider="target">
+                                                <rect key="frame" x="307" y="308" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="R9A-Wa-AmQ"/>
+                                                    <constraint firstAttribute="width" secondItem="0e2-JK-gCg" secondAttribute="height" multiplier="1:1" id="aKm-46-2Jh"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="heart"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="imageColorOff">
+                                                        <color key="value" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                        <color key="value" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="imageColorOn">
+                                                        <color key="value" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -855,6 +877,8 @@
                                             <constraint firstAttribute="trailing" secondItem="6nX-XV-2Tm" secondAttribute="trailing" constant="8" id="hLC-hr-Zo5"/>
                                             <constraint firstItem="Hp1-1a-1j3" firstAttribute="top" secondItem="uh3-6V-Rb2" secondAttribute="bottom" constant="8" id="i4Q-0n-jdh"/>
                                             <constraint firstItem="8Yt-py-6K6" firstAttribute="top" secondItem="6nX-XV-2Tm" secondAttribute="bottom" constant="8" id="nQv-Ui-FE6"/>
+                                            <constraint firstItem="0e2-JK-gCg" firstAttribute="top" secondItem="uh3-6V-Rb2" secondAttribute="bottom" constant="8" id="r6y-BT-Cjg"/>
+                                            <constraint firstAttribute="trailing" secondItem="0e2-JK-gCg" secondAttribute="trailing" constant="8" id="usQ-lT-zKn"/>
                                             <constraint firstItem="6Cm-cZ-vBu" firstAttribute="top" secondItem="8Yt-py-6K6" secondAttribute="bottom" constant="8" id="w5l-TS-uRu"/>
                                             <constraint firstItem="6Cm-cZ-vBu" firstAttribute="leading" secondItem="gXq-Gh-nBl" secondAttribute="leading" constant="8" id="wzo-J8-c87"/>
                                         </constraints>
@@ -893,6 +917,7 @@
                         <outlet property="fatsCircularLabel" destination="DcI-3g-3he" id="yjw-dP-uJD"/>
                         <outlet property="fatsCircularView" destination="taS-ps-iaF" id="ilL-Vc-Jbr"/>
                         <outlet property="fatsLabel" destination="FWX-Tk-DlD" id="BDy-Ev-MRK"/>
+                        <outlet property="favButton" destination="0e2-JK-gCg" id="AIp-Qi-5KD"/>
                         <outlet property="fiberCircularLabel" destination="Unn-MV-rqK" id="Ymw-Wy-2Rj"/>
                         <outlet property="fiberCircularView" destination="vb8-YD-C48" id="STD-pZ-7wL"/>
                         <outlet property="fiberLabel" destination="nUJ-Nm-0JA" id="2JX-lR-TQ4"/>
@@ -980,6 +1005,7 @@
     </scenes>
     <resources>
         <image name="back" width="512" height="512"/>
+        <image name="heart" width="256" height="256"/>
         <image name="next" width="512" height="512"/>
         <image name="rice" width="300" height="300"/>
     </resources>

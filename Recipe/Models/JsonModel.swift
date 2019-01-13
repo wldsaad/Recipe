@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct JsonModel: Decodable {
     var count: Int?
