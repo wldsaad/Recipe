@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Z5-Ed-hhu">
-                                <rect key="frame" x="0.0" y="56" width="375" height="446"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W3K-cq-EYj">
                                     <size key="itemSize" width="50" height="50"/>
@@ -49,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" placeholder="search within favorite recipes" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UT-xL-vXC">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="-1" width="375" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="9ta-U0-LxV"/>
                                 </constraints>
@@ -66,7 +66,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6UT-xL-vXC" firstAttribute="top" secondItem="NHt-DB-XPb" secondAttribute="top" id="3n9-XO-nNG"/>
+                            <constraint firstItem="6UT-xL-vXC" firstAttribute="top" secondItem="NHt-DB-XPb" secondAttribute="top" constant="-1" id="3n9-XO-nNG"/>
                             <constraint firstItem="QnM-1F-Ygq" firstAttribute="centerY" secondItem="bLs-38-d3i" secondAttribute="centerY" id="Fcy-M8-IYw"/>
                             <constraint firstItem="6UT-xL-vXC" firstAttribute="leading" secondItem="NHt-DB-XPb" secondAttribute="leading" id="PxD-4j-Sd9"/>
                             <constraint firstItem="9Z5-Ed-hhu" firstAttribute="trailing" secondItem="NHt-DB-XPb" secondAttribute="trailing" id="Q9V-CX-gv4"/>
@@ -99,7 +99,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="enter recipe (i.e. chicken)" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZF2-Y1-2dQ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="-1" width="375" height="56"/>
                                 <color key="barTintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits" keyboardType="webSearch" returnKeyType="search"/>
                                 <scopeButtonTitles>
@@ -111,7 +111,7 @@
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eAw-Xu-Vpu">
-                                <rect key="frame" x="0.0" y="56" width="375" height="446"/>
+                                <rect key="frame" x="0.0" y="55" width="375" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XEp-I5-hAe">
                                     <size key="itemSize" width="50" height="50"/>
@@ -175,7 +175,7 @@
                             <constraint firstItem="OwV-eJ-eu3" firstAttribute="trailing" secondItem="eAw-Xu-Vpu" secondAttribute="trailing" id="Apo-ez-ehf"/>
                             <constraint firstItem="OwV-eJ-eu3" firstAttribute="trailing" secondItem="D0W-7A-PMg" secondAttribute="trailing" constant="16" id="KH7-kH-FJf"/>
                             <constraint firstItem="eAw-Xu-Vpu" firstAttribute="leading" secondItem="OwV-eJ-eu3" secondAttribute="leading" id="Mpx-nz-VdI"/>
-                            <constraint firstItem="ZF2-Y1-2dQ" firstAttribute="top" secondItem="OwV-eJ-eu3" secondAttribute="top" id="ORi-hE-glD"/>
+                            <constraint firstItem="ZF2-Y1-2dQ" firstAttribute="top" secondItem="OwV-eJ-eu3" secondAttribute="top" constant="-1" id="ORi-hE-glD"/>
                             <constraint firstItem="t98-5x-fIE" firstAttribute="leading" secondItem="OwV-eJ-eu3" secondAttribute="leading" constant="16" id="RJm-22-bhf"/>
                             <constraint firstItem="aA9-kK-oU0" firstAttribute="centerY" secondItem="v4C-ew-VWJ" secondAttribute="centerY" id="RRj-TP-2Fp"/>
                             <constraint firstItem="t98-5x-fIE" firstAttribute="centerY" secondItem="v4C-ew-VWJ" secondAttribute="centerY" id="Rxd-P7-Anr"/>
@@ -1356,6 +1356,9 @@
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1383,6 +1386,9 @@
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
