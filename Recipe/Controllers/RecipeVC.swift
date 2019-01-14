@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
-class RecipeVC: UIViewController, SelectionRecipe {
+class RecipeVC: UIViewController, SelectionRecipeDelegate {
     
+    private let realm = try! Realm()
     
-
     @IBOutlet weak var favButton: DOFavoriteButton!
-    
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeIngredientsTextView: UITextView!
     @IBOutlet weak var recipeKCaloriesLabel: UILabel!
@@ -58,6 +58,7 @@ class RecipeVC: UIViewController, SelectionRecipe {
     @IBOutlet weak var phosphorusCircularView: CircleProgressView!
     
     
+    private var name = ""
     private var imageData = Data()
     private var ingredients = ""
     private var calories = ""
@@ -87,12 +88,26 @@ class RecipeVC: UIViewController, SelectionRecipe {
     private var zincDaily = ""
     private var phosphorusTotal = ""
     private var phosphorusDaily = ""
-    
+    private var shareAs = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
         addTargetToFavButton()
+        checkRecipeInRealm()
+        if let realmFile = realm.configuration.fileURL {
+            debugPrint(realmFile)
+        }
+        
+    }
+    
+    private func checkRecipeInRealm(){
+        if let _ = realm.objects(RecipeObject.self).filter("id CONTAINS %@", shareAs).first {
+            favButton.select()
+        } else {
+            favButton.deselect()
+        }
     }
     
     private func addTargetToFavButton(){
@@ -100,16 +115,71 @@ class RecipeVC: UIViewController, SelectionRecipe {
     }
     
     @objc private func tapped(sender: DOFavoriteButton) {
+        
+        
         if sender.isSelected {
-            // deselect
+            removeRecipeFromRealm()
             sender.deselect()
         } else {
-            // select with animation
+            addRecipeToRealm()
             sender.select()
         }
     }
     
+    private func addRecipeToRealm(){
+        let recipe = RecipeObject()
+        recipe.id = shareAs
+        recipe.name = name
+        recipe.imageData = imageData
+        recipe.ingredients = ingredients
+        recipe.calories = calories
+        recipe.fatsTotal = fatsTotal
+        recipe.fatsDaily = fatsDaily
+        recipe.carbohydratesTotal = carbohydratesTotal
+        recipe.carbohydratesDaily = carbohydratesDaily
+        recipe.proteinTotal = proteinTotal
+        recipe.proteinDaily = proteinDaily
+        recipe.fiberTotal = fiberTotal
+        recipe.fiberDaily = fiberDaily
+        recipe.sugarTotal = sugarTotal
+        recipe.sugarDaily = sugarDaily
+        recipe.cholesterolTotal = cholesterolTotal
+        recipe.cholesterolDaily = cholesterolDaily
+        recipe.sodiumTotal = sodiumTotal
+        recipe.sodiumDaily = sodiumDaily
+        recipe.calciumTotal = calciumTotal
+        recipe.calciumDaily = calciumDaily
+        recipe.magnesiumTotal = magnesiumTotal
+        recipe.magnesiumDaily = magnesiumDaily
+        recipe.potassiumTotal = potassiumTotal
+        recipe.potassiumDaily = potassiumDaily
+        recipe.ironTotal = ironTotal
+        recipe.ironDaily = ironDaily
+        recipe.zincTotal = zincTotal
+        recipe.zincDaily = zincDaily
+        recipe.phosphorusTotal = phosphorusTotal
+        recipe.phosphorusDaily = phosphorusDaily
+        do {
+            try? realm.write {
+                realm.add(recipe)
+            }
+        }
+    }
+    
+    private func removeRecipeFromRealm(){
+        if let recipeObject = realm.objects(RecipeObject.self).filter("id CONTAINS %@", shareAs).first {
+            do {
+                try? realm.write {
+                    realm.delete(recipeObject)
+                }
+            }
+        }
+        
+
+    }
+    
     private func updateViews(){
+        navigationItem.title = name
         recipeImageView.image = UIImage(data: imageData)
         recipeIngredientsTextView.text = ingredients
         recipeKCaloriesLabel.text = calories + " cal."
@@ -160,10 +230,10 @@ class RecipeVC: UIViewController, SelectionRecipe {
     }
     
 
-    func getRecipe(name: String, imageData: Data, ingredients:String, calories: String, fatsTotal: String, fatsDaily: String, carbohydratesTotal: String, carbohydratesDaily: String, proteinTotal: String, proteinDaily: String, fiberTotal: String, fiberDaily: String, sugarTotal: String, sugarDaily: String, cholesterolTotal: String, cholesterolDaily: String, sodiumTotal: String, sodiumDaily: String, calciumTotal: String, calciumDaily: String, magnesiumTotal: String, magnesiumDaily: String, potassiumTotal: String, potassiumDaily: String, ironTotal: String, ironDaily: String, zincTotal: String, zincDaily: String, phosphorusTotal: String, phosphorusDaily: String) {
+    func getRecipe(name: String, imageData: Data, ingredients:String, calories: String, fatsTotal: String, fatsDaily: String, carbohydratesTotal: String, carbohydratesDaily: String, proteinTotal: String, proteinDaily: String, fiberTotal: String, fiberDaily: String, sugarTotal: String, sugarDaily: String, cholesterolTotal: String, cholesterolDaily: String, sodiumTotal: String, sodiumDaily: String, calciumTotal: String, calciumDaily: String, magnesiumTotal: String, magnesiumDaily: String, potassiumTotal: String, potassiumDaily: String, ironTotal: String, ironDaily: String, zincTotal: String, zincDaily: String, phosphorusTotal: String, phosphorusDaily: String, shareAs: String) {
         
         
-        navigationItem.title = name
+        self.name = name
         self.imageData = imageData
         self.ingredients = ingredients
         self.calories = calories
@@ -193,7 +263,7 @@ class RecipeVC: UIViewController, SelectionRecipe {
         self.zincDaily = zincDaily
         self.phosphorusTotal = phosphorusTotal
         self.phosphorusDaily = phosphorusDaily
-
+        self.shareAs = shareAs
 
     }
 }

@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZO-4u-mOU" customClass="MyGradientShadowView" customModule="Recipe" customModuleProvider="target">
                     <rect key="frame" x="6.5" y="10" width="180" height="180"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rice" translatesAutoresizingMaskIntoConstraints="NO" id="fzb-h8-v0Z" customClass="MyRoundedImageView" customModule="Recipe" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzb-h8-v0Z" customClass="MyRoundedImageView" customModule="Recipe" customModuleProvider="target">
                             <rect key="frame" x="25" y="4" width="130" height="130"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="fzb-h8-v0Z" secondAttribute="height" multiplier="1:1" id="BSf-cb-Rjv"/>
@@ -89,7 +89,4 @@
             <point key="canvasLocation" x="-106.40000000000001" y="101.64917541229386"/>
         </view>
     </objects>
-    <resources>
-        <image name="rice" width="300" height="300"/>
-    </resources>
 </document>

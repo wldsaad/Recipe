@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8A88F81607068C9E44A0E9A8 /* Pods_Recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8328F32618A1C545662ACBE /* Pods_Recipe.framework */; };
 		9A0DD2D421EB9DF3008C9743 /* RecipeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0DD2D321EB9DF3008C9743 /* RecipeObject.swift */; };
+		9A200FBD21EC5D4900B60F50 /* FavoriteRecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A200FBC21EC5D4900B60F50 /* FavoriteRecipeVC.swift */; };
+		9A200FC021EC65C100B60F50 /* SelectionRecipeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A200FBF21EC65C100B60F50 /* SelectionRecipeDelegate.swift */; };
 		9A2DB39321EA68A800B5CDD1 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB39221EA68A800B5CDD1 /* RecipeCell.swift */; };
 		9A2DB39521EA68BB00B5CDD1 /* RecipeXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2DB39421EA68BB00B5CDD1 /* RecipeXib.xib */; };
 		9A2DB39721EA68D000B5CDD1 /* RecipeXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2DB39621EA68D000B5CDD1 /* RecipeXibView.swift */; };
@@ -30,6 +32,8 @@
 		10A5779A5034C14B816F04BB /* Pods-Recipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Recipe/Pods-Recipe.debug.xcconfig"; sourceTree = "<group>"; };
 		29158E77442CD040580D908C /* Pods-Recipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Recipe/Pods-Recipe.release.xcconfig"; sourceTree = "<group>"; };
 		9A0DD2D321EB9DF3008C9743 /* RecipeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeObject.swift; sourceTree = "<group>"; };
+		9A200FBC21EC5D4900B60F50 /* FavoriteRecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeVC.swift; sourceTree = "<group>"; };
+		9A200FBF21EC65C100B60F50 /* SelectionRecipeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionRecipeDelegate.swift; sourceTree = "<group>"; };
 		9A2DB39221EA68A800B5CDD1 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		9A2DB39421EA68BB00B5CDD1 /* RecipeXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeXib.xib; sourceTree = "<group>"; };
 		9A2DB39621EA68D000B5CDD1 /* RecipeXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeXibView.swift; sourceTree = "<group>"; };
@@ -79,6 +83,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A200FBE21EC65A800B60F50 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9A200FBF21EC65C100B60F50 /* SelectionRecipeDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		9AE9DEC221EA445F00F4ED59 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +112,7 @@
 		9AE9DECD21EA445F00F4ED59 /* Recipe */ = {
 			isa = PBXGroup;
 			children = (
+				9A200FBE21EC65A800B60F50 /* Protocols */,
 				9AE9DEEB21EA4C9E00F4ED59 /* Utils */,
 				9AE9DEE421EA44BD00F4ED59 /* Xibs */,
 				9AE9DEE321EA44B400F4ED59 /* Cells */,
@@ -120,6 +133,7 @@
 			children = (
 				9AE9DED021EA445F00F4ED59 /* SearchRecipeVC.swift */,
 				9A6BBE6D21EB0CB000B22161 /* RecipeVC.swift */,
+				9A200FBC21EC5D4900B60F50 /* FavoriteRecipeVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -293,11 +307,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A6BBE6E21EB0CB000B22161 /* RecipeVC.swift in Sources */,
+				9A200FC021EC65C100B60F50 /* SelectionRecipeDelegate.swift in Sources */,
 				9A2DB39921EA6A0A00B5CDD1 /* MyRoundedImageView.swift in Sources */,
 				9A2DB39721EA68D000B5CDD1 /* RecipeXibView.swift in Sources */,
 				9A2DB39B21EA6E3800B5CDD1 /* MyGradientShadowView.swift in Sources */,
 				9A740A9B21EBA0A400E336A9 /* DOFavoriteButton.swift in Sources */,
 				9A2DB39321EA68A800B5CDD1 /* RecipeCell.swift in Sources */,
+				9A200FBD21EC5D4900B60F50 /* FavoriteRecipeVC.swift in Sources */,
 				9AE9DEE821EA460900F4ED59 /* JsonModel.swift in Sources */,
 				9A0DD2D421EB9DF3008C9743 /* RecipeObject.swift in Sources */,
 				9AE9DED121EA445F00F4ED59 /* SearchRecipeVC.swift in Sources */,

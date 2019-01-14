@@ -44,4 +44,14 @@ class RecipeCell: UICollectionViewCell {
         }
     }
     
+    func updateViewFavorite(recipe: RecipeObject){
+        
+        myXibView.recipeLabel.text = recipe.name
+        DispatchQueue.main.async {
+            self.myXibView.recipeImageView.image = UIImage(data: recipe.imageData)
+        }
+    }
+
+    
+    
 }

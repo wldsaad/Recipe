@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class RecipeObject: Object{
+    @objc dynamic var id = ""
     @objc dynamic var name = ""
     @objc dynamic var imageData = Data()
     @objc dynamic var ingredients = ""

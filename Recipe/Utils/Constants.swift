@@ -6,11 +6,13 @@
 //  Copyright © 2019 Waleed Saad. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Constants {
     private let APP_ID = "3811f84b"
     private let APP_KEY = "09464942707ba0c1c3770f7067ea5c6b"
+    
+    static let cellHeight: CGFloat = 200.0
     
     func getBaseURL(withSearchText searchText: String, from: Int, to: Int) -> URL {
         let search = searchText.replacingOccurrences(of: " ", with: "%20")

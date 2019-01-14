@@ -119,7 +119,7 @@ extension SearchRecipeVC: UICollectionViewDataSource {
 
 extension SearchRecipeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width / 2) - 10, height: 200)
+        return CGSize(width: (collectionView.frame.size.width / 2) - 10, height: Constants.cellHeight)
     }
 }
 
@@ -174,41 +174,17 @@ extension SearchRecipeVC: UICollectionViewDelegate {
                 let zincDaily = "\(String(format: "%.f", recipe.totalDaily?.ZN?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
                 let phosphorusTotal = "\(String(format: "%.f", recipe.totalNutrients?.P?.quantity ?? 0.0)) \(recipe.totalNutrients?.FAT?.unit ?? "")"
                 let phosphorusDaily = "\(String(format: "%.f", recipe.totalDaily?.P?.quantity ?? 0.0))\(recipe.totalDaily?.FAT?.unit ?? "")"
+                var shareAs = ""
+                if let shareLink = recipe.shareAs {
+                    shareAs = shareLink
+                }
                 
                 
-                
-                recipeVC.getRecipe(name: name!, imageData: imageData, ingredients: ingredients, calories: calories, fatsTotal: fatsTotal, fatsDaily: fatsDaily, carbohydratesTotal: carbohydratesTotal, carbohydratesDaily: carbohydratesDaily, proteinTotal: proteinTotal, proteinDaily: proteinDaily, fiberTotal: fiberTotal, fiberDaily: fiberDaily, sugarTotal: sugarTotal, sugarDaily: sugarDaily, cholesterolTotal: cholesterolTotal, cholesterolDaily: cholesterolDaily, sodiumTotal: sodiumTotal, sodiumDaily: sodiumDaily, calciumTotal: calciumTotal, calciumDaily: calciumDaily, magnesiumTotal: magnesiumTotal, magnesiumDaily: magnesiumDaily, potassiumTotal: potassiumTotal, potassiumDaily: potassiumDaily, ironTotal: ironTotal, ironDaily: ironDaily, zincTotal: zincTotal, zincDaily: zincDaily, phosphorusTotal: phosphorusTotal, phosphorusDaily: phosphorusDaily)
+                recipeVC.getRecipe(name: name!, imageData: imageData, ingredients: ingredients, calories: calories, fatsTotal: fatsTotal, fatsDaily: fatsDaily, carbohydratesTotal: carbohydratesTotal, carbohydratesDaily: carbohydratesDaily, proteinTotal: proteinTotal, proteinDaily: proteinDaily, fiberTotal: fiberTotal, fiberDaily: fiberDaily, sugarTotal: sugarTotal, sugarDaily: sugarDaily, cholesterolTotal: cholesterolTotal, cholesterolDaily: cholesterolDaily, sodiumTotal: sodiumTotal, sodiumDaily: sodiumDaily, calciumTotal: calciumTotal, calciumDaily: calciumDaily, magnesiumTotal: magnesiumTotal, magnesiumDaily: magnesiumDaily, potassiumTotal: potassiumTotal, potassiumDaily: potassiumDaily, ironTotal: ironTotal, ironDaily: ironDaily, zincTotal: zincTotal, zincDaily: zincDaily, phosphorusTotal: phosphorusTotal, phosphorusDaily: phosphorusDaily, shareAs: shareAs)
 
             }
         }
     }
-}
-
-
-protocol SelectionRecipe {
-    
-    
-    
-    func getRecipe(
-        name: String,
-        imageData: Data,
-        ingredients: String,
-        calories: String,
-        fatsTotal: String, fatsDaily: String,
-        carbohydratesTotal: String, carbohydratesDaily: String,
-        proteinTotal: String, proteinDaily: String,
-        fiberTotal: String, fiberDaily: String,
-        sugarTotal: String, sugarDaily: String,
-        cholesterolTotal: String, cholesterolDaily: String,
-        sodiumTotal: String, sodiumDaily: String,
-        calciumTotal: String, calciumDaily: String,
-        magnesiumTotal: String, magnesiumDaily: String,
-        potassiumTotal: String, potassiumDaily: String,
-        ironTotal: String, ironDaily: String,
-        zincTotal: String, zincDaily: String,
-        phosphorusTotal: String, phosphorusDaily: String
-    )
- 
 }
 
 extension SearchRecipeVC: UISearchBarDelegate {
@@ -241,6 +217,5 @@ extension SearchRecipeVC: UISearchBarDelegate {
             view.gestureRecognizers?.removeAll()
             isSearchOpen = false
         }
-        
     }
 }
