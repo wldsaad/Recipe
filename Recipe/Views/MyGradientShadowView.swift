@@ -16,6 +16,11 @@ class MyGradientShadowView: UIView {
             self.setNeedsLayout()
         }
     }
+    @IBInspectable var midColor: UIColor = UIColor.white {
+        didSet {
+            self.setNeedsLayout()
+        }
+    }
     @IBInspectable var endColor: UIColor = UIColor.black {
         didSet {
             self.setNeedsLayout()
@@ -59,7 +64,7 @@ class MyGradientShadowView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.colors = [startColor.cgColor, midColor.cgColor, endColor.cgColor]
         gradientLayer.startPoint = startPoint
         gradientLayer.endPoint = endPoint
         gradientLayer.frame = bounds

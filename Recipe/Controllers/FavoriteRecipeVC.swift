@@ -15,6 +15,7 @@ class FavoriteRecipeVC: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noRecipesLabel: UILabel!
     
     private var recipes: Results<RecipeObject>?
     private var isSearchOpen = false
@@ -23,15 +24,23 @@ class FavoriteRecipeVC: UIViewController {
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getRecipesFromRealm()
 
     }
     
+    private func showHideViews(){
+        if recipes?.count == 0 {
+            noRecipesLabel.isHidden = false
+        } else {
+            noRecipesLabel.isHidden = true
+        }
+    }
     private func getRecipesFromRealm(){
         recipes = realm.objects(RecipeObject.self)
         collectionView.reloadData()
+        showHideViews()
     }
     
 

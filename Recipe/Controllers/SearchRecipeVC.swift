@@ -198,11 +198,13 @@ extension SearchRecipeVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text {
-            self.searchText = searchText
-            from = 0
-            to = 6
-            getFoods(withText: searchText, from: from, to: to)
-            closeSearch()
+            if searchText.count > 0 {
+                self.searchText = searchText
+                from = 0
+                to = 6
+                getFoods(withText: searchText, from: from, to: to)
+                closeSearch()
+            }
             
         }
     }

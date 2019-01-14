@@ -95,11 +95,12 @@ class RecipeVC: UIViewController, SelectionRecipeDelegate {
         super.viewDidLoad()
         updateViews()
         addTargetToFavButton()
-        checkRecipeInRealm()
-        if let realmFile = realm.configuration.fileURL {
-            debugPrint(realmFile)
-        }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkRecipeInRealm()
     }
     
     private func checkRecipeInRealm(){
